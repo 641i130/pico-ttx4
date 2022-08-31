@@ -1,3 +1,10 @@
+# OTHER
+*.cmake
+rp2040/
+build/
+Makefile
+
+CMakeLists.txt
 # Prerequisites
 *.d
 
