@@ -1,10 +1,10 @@
 # OTHER
-*.cmake
+#*.cmake
 rp2040/
 build/
-Makefile
+#Makefile
 
-CMakeLists.txt
+#CMakeLists.txt
 # Prerequisites
 *.d
 
