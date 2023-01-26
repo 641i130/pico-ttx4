@@ -1,30 +1,17 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.12)
 
-include(family_support.cmake)
-
-# gets PROJECT name for the example (e.g. <BOARD>-<DIR_NAME>)
+# Pull in SDK (must be before project)
+include(pico_sdk_import.cmake)
 
 project(pico-ttx4 C CXX ASM)
-
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
-# Checks this example is valid for the family and initializes the project
-family_initialize_project(pico-ttx4 ${CMAKE_CURRENT_LIST_DIR})
+# Initialize the SDK
+pico_sdk_init()
 
-add_executable(pico-ttx4)
+add_executable(pico-ttx4 src/main.c src/usb_descriptors.c)
 
-# Example source
-target_sources(pico-ttx4 PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/usb_descriptors.c
-        )
-
-# Example include
-target_include_directories(pico-ttx4 PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-        )
-
-# Configure compilation flags and libraries for the example... see the corresponding function
-# in hw/bsp/FAMILY/family.cmake for details.
-family_configure_device_example(pico-ttx4)
+target_include_directories(pico-ttx4 PRIVATE include/)
+target_link_libraries(pico-ttx4 PRIVATE pico_stdlib tinyusb_device tinyusb_board hardware_pwm)
+pico_add_extra_outputs(pico-ttx4)
