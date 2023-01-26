@@ -1,7 +1,8 @@
 # pico-ttx4
 
-Hardware Emulated TTX4 IO
-This currently will look exactly like the TTX4 USB input device I reversed [here](https://github.com/641i130/ttx4-usbio).
+### Hardware Emulated TTX4 IO
+
+This currently will look exactly like the TTX4 USB input device I reversed [here](https://github.com/641i130/ttx4-usbio). At least, according to the linux tool `lsusb`.
 
 ## Build instructions
 
