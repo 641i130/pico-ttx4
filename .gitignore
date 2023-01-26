@@ -3,7 +3,8 @@
 rp2040/
 build/
 #Makefile
-
+CMakeCache.txt
+CMakeFiles/
 #CMakeLists.txt
 # Prerequisites
 *.d
