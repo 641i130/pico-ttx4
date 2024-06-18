@@ -10,8 +10,9 @@ set(CMAKE_CXX_STANDARD 17)
 # Initialize the SDK
 pico_sdk_init()
 
-add_executable(pico-ttx4 src/main.c src/usb_descriptors.c)
+add_executable(pico-ttx4
+        src/dev_lowlevel.c
+        )
 
-target_include_directories(pico-ttx4 PRIVATE include/)
-target_link_libraries(pico-ttx4 PRIVATE pico_stdlib tinyusb_device tinyusb_board hardware_pwm)
+target_link_libraries(pico-ttx4 PRIVATE pico_stdlib hardware_resets hardware_irq)
 pico_add_extra_outputs(pico-ttx4)
