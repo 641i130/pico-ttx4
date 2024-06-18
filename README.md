@@ -47,7 +47,7 @@ make
    ```bash
    sudo mkdir /mnt/pico
    sudo mount `sudo fdisk -l | grep 'W95 FAT16' | awk '{print $1}'` /mnt/pico
-   sudo cp pico-ttx4.uf2
+   sudo cp pico-ttx4.uf2 /mnt/pico
    ```
 
    
